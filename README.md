@@ -179,3 +179,73 @@ Every chip has its own decoupling capacitors.
 > During testing:
 > - Power the board exclusively from a battery.
 > - **Never connect the ESP32 to a computer powered from the mains while the electrodes are attached.**
+
+<br><br>
+
+## Software
+
+SpaceFlex monitors an astronaut's muscle health by comparing electrical activity (sEMG) from day to day. The signal travels from the ESP32 over USB to a website that runs in the browser, with no server.
+
+```
+sEMG sensor → ESP32 → USB serial 115200 baud → browser (login.html → index.html)
+```
+
+### 1. Web application
+
+The site has two pages linked through the browser's `localStorage`.
+
+**`login.html`** collects the subject's profile: first name, last name, age, gender, reference body weight, clinical status and notes. The data is saved, then the page moves on to `index.html`. Opening `index.html` directly redirects back to the login.
+
+**`index.html`** is the console. It connects to the ESP32 through the Web Serial API (Chrome or Edge) and reads each line in real time. The main screen is the anatomical map with the history:
+
+- Two SVG silhouettes, front and back, with 11 clickable muscle groups. The colour shows the latest measured status:
+
+  | Colour | Status |
+  |---|---|
+  | light green | not measured |
+  | green | normal |
+  | amber | decay |
+  | red | atrophy |
+
+- Counters of muscles per status, a multi-day chart of the selected muscle showing the drift from Day 1, and a chronological log of the sessions.
+
+### 2. Diagnostic algorithm
+
+At the end of the acquisition window the site computes the mean $\bar{V}$ and the peak $V_{\mathrm{peak}}$ of the 200 samples, then `classifyLongTermMuscleStatus()` compares them with the history of the same muscle.
+
+**Step 1: baseline.** It takes the first historical measurement of that muscle (usually Day 1), $\bar{V}_{\mathrm{baseline}}$.
+
+**Step 2: percentage change** (in %):
+
+$$
+\Delta = \frac{\bar{V}_{\mathrm{today}} - \bar{V}_{\mathrm{baseline}}}{\bar{V}_{\mathrm{baseline}}} \times 100
+$$
+
+**Step 3: slope.** It checks the last two days. Calling $V_{d}$ today's value, $V_{d-1}$ yesterday's and $V_{d-2}$ the day before, if $V_{d} < V_{d-1} < V_{d-2}$ the counter $N_{\mathrm{drops}}$ (`consecutiveDrops`) reaches 2.
+
+**Step 4: decision**, starting from the worst case.
+
+| Status | Condition (any one is enough) |
+|---|---|
+| **Critical** | $\bar{V} < 2.00\ \mathrm{mV}$ or $\Delta \le -25$ |
+| **Warning** | $\bar{V} < 3.05\ \mathrm{mV}$ or $\Delta \le -12$ or $N_{\mathrm{drops}} \ge 2$ |
+| **Nominal** | none of the above |
+
+So a muscle at 3.25 mV, which is still above the absolute threshold, turns yellow if it has dropped by 14 % from Day 1.
+
+### 3. Stored data
+
+Everything is kept in a JSON object in `localStorage`, with one key per patient (for example `spaceflex_history_valerio_moretti`):
+
+```json
+{
+  "currentDay": 15,
+  "consumedKcal": 1850,
+  "consumedProt": 82,
+  "weightHistory": [{ "day": 1, "weight": 78.0 }, { "day": 15, "weight": 76.5 }],
+  "measurements": [{ "day": 15, "muscleKey": "calves", "mean": "3.15",
+                     "peak": "3.42", "baselinePct": "-16.0", "status": "warning", "note": "..." }]
+}
+```
+
+When the page opens, `JSON.parse` rebuilds the object. At each new measurement the site adds an element at the start of `measurements` (`unshift`) and rewrites everything with `JSON.stringify`.
