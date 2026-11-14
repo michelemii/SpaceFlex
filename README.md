@@ -127,7 +127,7 @@ What you should see:
 * the largest peaks reach about 2.67 V and 0.87 V, well inside the 0 V to 3.3 V range of the ADC;
 * when the recording ends at 2.5 s, the output settles back to 1.65 V.
 
-
+<br><br>
 
 ## KiCad schematic
 
