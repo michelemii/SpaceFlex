@@ -1,5 +1,6 @@
 # SpaceFlex
-
+[![Hardware license](https://img.shields.io/badge/Hardware%20license-CC--BY--SA%204.0-brightgreen)](LICENSE-HARDWARE)
+[![Firmware license](https://img.shields.io/badge/Firmware%20license-GPL%20v3-blue)](LICENSE-FIRMWARE)
 
 
 
