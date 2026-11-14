@@ -128,4 +128,54 @@ What you should see:
 
 
 
-## Kicad implementation
+## KiCad schematic
+
+The schematic implements the circuit validated in LTspice, with the same values, repeated for **four identical channels**. On top of the analog chain it adds the parts needed to turn it into a complete board: a right leg drive, an ADC, a microcontroller, separate supplies and protections.
+
+### From the analog chain to the microcontroller
+
+Once each channel has amplified and filtered its signal, the four outputs go to an **ADS131E04**, a 24 bit ADC that samples all four channels at the same instant. VREF goes to the negative input of every ADC channel, so the converter only sees the signal.
+
+The ADC sends the samples to an **ESP32 DevKitC** over **SPI**. A data ready line tells the ESP32, through an interrupt, when a new set of samples is available.
+
+### Right leg drive
+
+The midpoint of each INA333 gain resistor carries the common mode voltage of that channel. A summing amplifier adds the four signals, inverts them and drives the body through the reference electrode:
+
+```math
+G_{\mathrm{RLD}} = -\frac{1\ \mathrm{M\Omega}}{390\ \mathrm{k\Omega}} \approx -2.56 \ \text{per channel}
+```
+
+This is what attenuates the 50 Hz interference that the filters alone do not remove. A 1 MΩ resistor in series with the output limits the current through the body to a few microamps.
+
+### Separate analog and digital supplies
+
+The analog and digital parts are powered separately, so that the noise of the microcontroller does not reach the amplifiers:
+
+* **+3.3V_A** (analog) comes from an external 3.3 V supply on a screw terminal and powers the amplifiers, the filters, the reference and the analog side of the ADC;
+* **+3.3V_D** (digital) comes from the 3.3 V regulator of the ESP32 board and powers the digital side of the ADC.
+
+Every chip has its own decoupling capacitors.
+
+### Protection
+
+* **ESD:** diode arrays on the electrode lines divert electrostatic discharges before they reach the amplifier inputs.
+* **EMI shield:** a metal shielding can, soldered to ground on the PCB, covers the analog section to keep out the radio interference of the ESP32 and of nearby devices. Its footprints are in the `RF_Shielding.pretty` folder.
+
+## External libraries
+
+| Folder | Content | Source |
+|---|---|---|
+| `ADS131E04_KiCad/` | ADS131E04 symbol | Made for this project from the [TI datasheet](https://www.ti.com/product/ADS131E04) |
+| `Espressif_KiCad/` | ESP32 DevKitC symbol and footprint | [Espressif KiCad libraries](https://github.com/espressif/kicad-libraries) |
+| `RF_Shielding.pretty/` | Shielding can footprints | [KiCad footprint library](https://gitlab.com/kicad/libraries/kicad-footprints) |
+
+
+> [!CAUTION]
+> **Electrical Safety Warning**
+>
+> The electrodes are connected directly to a person, and the board provides no galvanic isolation.
+>
+> During testing:
+> - Power the board exclusively from a battery.
+> - **Never connect the ESP32 to a computer powered from the mains while the electrodes are attached.**
