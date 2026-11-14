@@ -9,7 +9,7 @@ This folder contains the LTspice simulation of the analog front end of our surfa
 
 We designed and validated the chain in LTspice first, then drew the KiCad schematic with the same values.
 
-![LTspice schematic of the EMG channel](EMG_board/simulation/images/EMG_channel.png)
+![LTspice schematic of the EMG channel](hardware/simulation/images/EMG_channel.png)
 
 ### Signal chain
 
@@ -99,7 +99,7 @@ G_{\mathrm{tot}} = G_{\mathrm{INA}} \cdot K \cdot |H_0| \approx 5.03 \cdot 2 \cd
 
 The simulation is a frequency sweep from 1 Hz to 100 kHz (`.ac dec 200 1 100k`), with the INA333 model loaded by `.lib INA333.lib`. V1 and V2 have `AC 0.5`, one in phase and one at 180°, so the difference E1 − E2 is 1 V: the plot of `V(OUT)` in dB is directly the gain of the chain.
 
-![Bode plot of V(OUT)](EMG_board/simulation/images/plot_bode.png)
+![Bode plot of V(OUT)](hardware/simulation/images/plot_bode.png)
 
 What you should see:
 
@@ -118,7 +118,7 @@ To run this test:
 2. Comment out the `.ac` directive and add `.tran 2.7`.
 3. Run and plot `V(OUT)`.
 
-![Output of the chain with the recorded EMG signals](EMG_board/simulation/images/plot_emg_data.png)
+![Output of the chain with the recorded EMG signals](hardware/simulation/images/plot_emg_data.png)
 
 What you should see:
 
