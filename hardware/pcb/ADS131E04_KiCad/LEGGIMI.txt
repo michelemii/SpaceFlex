@@ -1,0 +1,6 @@
+ADS131E04 - simbolo KiCad (TQFP-64, PAG)
+1) Preferenze > Gestisci librerie simboli > aggiungi ADS131E04.kicad_sym (nickname: ADS131E04)
+2) Nello schematico premi A e cerca ADS131E04
+3) Footprint gia' assegnato: Package_QFP:TQFP-64_10x10mm_P0.5mm (e' nella libreria standard di KiCad)
+I pin NC (1-8, 27, 29, 62, 64) sono nascosti.
+Controlla i pin sul datasheet TI SBAS561 prima di ordinare il PCB.
