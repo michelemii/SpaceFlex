@@ -13,7 +13,7 @@
 - 🛡️ **Noise rejection** - Right-leg-drive circuit cancelling mains interference at its source
 - 🎯 **Simultaneous sampling** - 24-bit ADC digitizing all four channels at the same instant
 - 📉 **Kalman filtering** - Clean, smooth signal with much less lag than a moving average
-- 🧍 **Interactive anatomical map** - 11 muscle groups coloured by their latest status (nominal, warning, critical)
+- 🧍 **Interactive anatomical map** - 12 muscle groups coloured by their latest status (nominal, warning, critical)
 - 🧠 **Personalized diagnostics** - Absolute thresholds, % change from Day 1 and consecutive-drop detection
 - ⚖️ **Body-weight monitoring** - Automatic alerts when weight drops below baseline
 - 🌐 **Offline web console** - Runs entirely in the browser via Web Serial API, no server or internet needed
