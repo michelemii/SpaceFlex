@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpaceFlex — Sign in</title>
+  <script src="libs/tailwindcss.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Manrope', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'] },
+          colors: {
+            // "Soft night" palette: teal = warm charcoal neutrals, emerald = soft mint (status OK), accent = amber
+            teal:    { 50:'#F1F0EC',100:'#E4E3DF',200:'#B4B7BF',300:'#9A9EA8',400:'#7C808B',500:'#5F636E',600:'#474B55',700:'#3A3E48',800:'#30343E',900:'#292C35',950:'#1D2027' },
+            emerald: { 50:'#EEF8F3',100:'#D6F0E3',200:'#B6E4CD',300:'#8FD3B2',400:'#74C59F',500:'#5AAE88',600:'#3F8F6C',700:'#2F7255',800:'#245943',900:'#1F3A30',950:'#18291F' },
+            rose:    { 300:'#FFA99C',400:'#FF8A7A',500:'#F26D5B',900:'#5A2A2C',950:'#3A2124' },
+            amber:   { 300:'#F6D27A',400:'#F4C860',500:'#E0AE3C',900:'#4A3D1E',950:'#342B17' },
+            accent:  { 300:'#F7C28E',400:'#F5B272',500:'#F2A65A',600:'#E08F3E',700:'#C27728',950:'#1A1408' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: #17191F;
+      color: #F1F0EC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .font-mono-tech {
+      font-family: 'Manrope', system-ui, sans-serif;
+      font-variant-numeric: tabular-nums;
+    }
+    .glass-card {
+      background: #22252D;
+      border: 1px solid #30343E;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+    .input-field {
+      background-color: #1C1F26 !important;
+      border: 1px solid #3A3E48;
+      border-radius: 12px;
+      padding: 11px 14px;
+      color: #ffffff !important;
+      font-size: 0.9rem;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s ease;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .input-field option {
+      background-color: #1C1F26;
+      color: #ffffff;
+    }
+    .input-field:focus {
+      border-color: #F2A65A;
+    }
+    .input-field::placeholder {
+      color: #7C808B;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glass-card w-full max-w-lg p-7">
+    <div class="flex items-center gap-3.5 pb-6 mb-6 border-b border-white/10">
+      <div class="w-12 h-12 rounded-xl bg-accent-500 flex items-center justify-center font-extrabold text-accent-950 text-xl" aria-hidden="true">S</div>
+      <div>
+        <h1 class="text-2xl font-extrabold text-white">Welcome to SpaceFlex</h1>
+        <p class="text-sm text-teal-200">Tell us who’s being monitored today</p>
+      </div>
+    </div>
+
+    <div class="space-y-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <div>
+          <label class="block text-sm font-semibold text-teal-200 mb-1.5">First name</label>
+          <input type="text" id="firstName" placeholder="e.g. Marco" class="input-field font-semibold">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-teal-200 mb-1.5">Last name</label>
+          <input type="text" id="lastName" placeholder="e.g. Rossi" class="input-field font-semibold">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-3.5">
+        <div>
+          <label class="block text-sm font-semibold text-teal-200 mb-1.5">Age</label>
+          <input type="number" id="age" min="1" max="120" placeholder="32" class="input-field font-mono-tech">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-teal-200 mb-1.5">Gender</label>
+          <select id="gender" class="input-field font-semibold">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-teal-200 mb-1.5">Body weight (kg)</label>
+          <input type="number" id="baselineWeight" step="0.1" value="78.0" class="input-field font-mono-tech">
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold text-teal-200 mb-1.5">Health status</label>
+        <select id="healthStatus" class="input-field font-semibold">
+          <option value="Healthy">Healthy</option>
+          <option value="Sick">Sick</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold text-teal-200 mb-1.5">Notes (optional)</label>
+        <input type="text" id="clinicalNotes" placeholder="e.g. Left lower limb immobilization..." class="input-field font-semibold">
+      </div>
+
+      <div class="pt-3 flex items-center justify-between gap-3">
+        <button type="button" onclick="quickDemoFill()" class="px-4 py-2.5 rounded-xl bg-teal-950/90 hover:bg-teal-900 border border-white/10 text-teal-200 font-mono-tech text-xs font-bold transition-colors">
+          Fill demo data
+        </button>
+        <button type="button" onclick="enterConsole()" class="flex-grow py-3 px-5 rounded-xl bg-accent-500 hover:bg-accent-400 active:bg-accent-600 text-accent-950 font-mono-tech font-bold text-sm transition-colors shadow-lg">
+          Continue →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function quickDemoFill() {
+      document.getElementById('firstName').value = 'Valerio';
+      document.getElementById('lastName').value = 'Moretti';
+      document.getElementById('age').value = '38';
+      document.getElementById('gender').value = 'Male';
+      document.getElementById('baselineWeight').value = '78.0';
+      document.getElementById('healthStatus').value = 'Sick';
+      document.getElementById('clinicalNotes').value = 'ISS Expedition — Lower limb atrophy monitoring';
+    }
+
+    async function enterConsole() {
+      const fName = document.getElementById('firstName').value.trim();
+      const lName = document.getElementById('lastName').value.trim();
+      const age = document.getElementById('age').value.trim();
+
+      if (!fName || !lName || !age) {
+        alert("Please fill First Name, Last Name and Age.");
+        return;
+      }
+
+      const patientData = {
+        firstName: fName,
+        lastName: lName,
+        age: age,
+        gender: document.getElementById('gender').value,
+        baselineWeight: parseFloat(document.getElementById('baselineWeight').value) || 78.0,
+        healthStatus: document.getElementById('healthStatus').value,
+        clinicalNotes: document.getElementById('clinicalNotes').value.trim()
+      };
+
+      const jsonStr = JSON.stringify(patientData);
+      try {
+        if (window.localStorage) {
+          window.localStorage.setItem('spaceflex_active_patient', jsonStr);
+        }
+      } catch (e) {}
+
+      if (window.pywebview && window.pywebview.api) {
+        await window.pywebview.api.open_console(jsonStr);
+      } else {
+        window.location.href = 'index.html';
+      }
+    }
+  </script>
+</body>
+</html>
