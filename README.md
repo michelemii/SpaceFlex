@@ -195,6 +195,9 @@ Every chip has its own decoupling capacitors.
 * **ESD:** diode arrays on the electrode lines divert electrostatic discharges before they reach the amplifier inputs.
 * **EMI:** a metal shield, soldered to ground on the PCB, covers the analog section to keep out the radio interference of the ESP32 and of nearby devices.
 
+### Images
+📁 The 3D render of the PCB and the routing images are available in the [images](images/) folder.
+
 ## External libraries
 
 | Folder | Content | Source |
