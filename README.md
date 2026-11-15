@@ -18,7 +18,7 @@
 - ⚖️ **Body-weight monitoring** - Automatic alerts when weight drops below baseline
 - 🌐 **Offline web console** - Runs entirely in the browser via Web Serial API, no server or internet needed
 
-> 🤖 **AI disclosure:** some parts of this project were developed with the help of AI tools. See [Use of AI tools](#-use-of-ai-tools) for details.
+>  **AI disclosure:** some parts of this project were developed with the help of AI tools. See [Use of AI tools](#-use-of-ai-tools) for details.
 ---
 
 ## 👥 Team
