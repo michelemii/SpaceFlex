@@ -3,21 +3,30 @@
 [![Firmware license](https://img.shields.io/badge/Firmware%20license-GPL%20v3-blue)](LICENSE-FIRMWARE)
 <br><br>
 
-### Who we are
-**Team Elettronici in Orbita**
+## Overview
+
+**SpaceFlex** is a surface-EMG monitoring system designed to help astronauts and crew medical officers detect muscle deterioration early during long space missions. By combining a custom **4-channel analog front-end** with an **ESP32** and a browser-based console, SpaceFlex tracks each muscle day by day and compares it with the astronaut's own baseline, flagging decline before it shows up on the scale.
+
+## Key Features
+
+- ⚡ **Custom EMG front-end** - 4 simultaneous channels with low-noise instrumentation amplifiers and a 20–500 Hz filter chain.
+- 🛡️ **Noise rejection** - Right-leg-drive circuit cancelling mains interference at its source
+- 🎯 **Simultaneous sampling** - 24-bit ADC digitizing all four channels at the same instant
+- 📉 **Kalman filtering** - Clean, smooth signal on the ESP32 with much less lag than a moving average
+- 🧍 **Interactive anatomical map** - 11 muscle groups coloured by their latest status (nominal, warning, critical)
+- 🧠 **Personalized diagnostics** - Absolute thresholds, % change from Day 1 and consecutive-drop detection
+- ⚖️ **Body-weight monitoring** - Automatic alerts when weight drops below baseline
+- 🌐 **Offline web console** - Runs entirely in the browser via Web Serial API, no server or internet needed
+
+---
+
+## 👥 Team
+
 - **Raffaele Manfrin**
 - **Michele Missiroli**
 - **Andrea Nucciotti**
 - **Vlad Panta**
 - **Riccardo Pica**
-
-### The project
-
-SpaceFlex is a compact surface-EMG system that tracks astronauts' muscle health day by day. A custom 4-channel analog front-end reads the muscles' electrical activity, and a browser-based console compares each session with the astronaut's own baseline. This lets it flag muscle deterioration early, before it shows up on the scale.
-
-### Why we took on this challenge
-
-Long missions in microgravity cause muscle loss, and crews are far from medical care. We wanted to take what we study every day — circuits, signals and microcontrollers — and turn it into a tool that could help protect the people who explore space.
 
 ---
 <br><br>
