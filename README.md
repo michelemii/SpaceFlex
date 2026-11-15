@@ -29,6 +29,12 @@
 - **Vlad Panta**
 - **Riccardo Pica**
 
+## 📑 Table of Contents
+
+- [LTspice simulation](#ltspice-simulation)
+- [KiCad implementation](#kicad-implementation)
+- [Software](#software)
+
 ---
 <br><br>
 ## LTspice simulation
@@ -155,7 +161,7 @@ What you should see:
 
 <br><br>
 
-## KiCad schematic
+## KiCad implementation
 
 The schematic implements the circuit validated in LTspice, with the same values, repeated for **four identical channels**. On top of the analog chain it adds the parts needed to turn it into a complete board: a right leg drive, an ADC, a microcontroller, separate supplies and protections.
 
