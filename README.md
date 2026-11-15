@@ -12,7 +12,7 @@
 - ⚡ **Custom EMG front-end** - 4 simultaneous channels with low-noise instrumentation amplifiers and a 20–500 Hz filter chain.
 - 🛡️ **Noise rejection** - Right-leg-drive circuit cancelling mains interference at its source
 - 🎯 **Simultaneous sampling** - 24-bit ADC digitizing all four channels at the same instant
-- 📉 **Kalman filtering** - Clean, smooth signal on the ESP32 with much less lag than a moving average
+- 📉 **Kalman filtering** - Clean, smooth signal with much less lag than a moving average
 - 🧍 **Interactive anatomical map** - 11 muscle groups coloured by their latest status (nominal, warning, critical)
 - 🧠 **Personalized diagnostics** - Absolute thresholds, % change from Day 1 and consecutive-drop detection
 - ⚖️ **Body-weight monitoring** - Automatic alerts when weight drops below baseline
