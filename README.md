@@ -197,9 +197,6 @@ Every chip has its own decoupling capacitors.
 * **ESD:** diode arrays on the electrode lines divert electrostatic discharges before they reach the amplifier inputs.
 * **EMI:** a metal shield, soldered to ground on the PCB, covers the analog section to keep out the radio interference of the ESP32 and of nearby devices.
 
-### Images
-📁 The 3D render of the PCB and the routing images are available in the [images](images/) folder.
-
 ## External libraries
 
 | Folder | Content | Source |
@@ -218,6 +215,17 @@ Every chip has its own decoupling capacitors.
 > - Power the board exclusively from a battery.
 > - **Never connect the ESP32 to a computer powered from the mains while the electrodes are attached.**
 
+## 🖼️ PCB Gallery
+
+<p align="center">
+  <img src="images/PCB.jpeg" alt="SpaceFlex PCB 3D render" width="400">
+  &nbsp;&nbsp;
+  <img src="images/PCB%20Routing.jpeg" alt="SpaceFlex PCB routing" width="300">
+</p>
+
+<p align="center">
+  <em>Left: 3D render of the PCB. Right: PCB routing.</em>
+</p>
 <br><br>
 
 ## Software
