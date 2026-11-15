@@ -3,11 +3,11 @@
 [![Firmware license](https://img.shields.io/badge/Firmware%20license-GPL%20v3-blue)](LICENSE-FIRMWARE)
 <br><br>
 
-## Overview
+### Overview
 
 **SpaceFlex** is a surface-EMG monitoring system designed to help astronauts and crew medical officers detect muscle deterioration early during long space missions. By combining a custom **4-channel analog front-end** with an **ESP32** and a browser-based console, SpaceFlex tracks each muscle day by day and compares it with the astronaut's own baseline, flagging decline before it shows up on the scale.
 
-## Key Features
+### Key Features
 
 - ⚡ **Custom EMG front-end** - 4 simultaneous channels with low-noise instrumentation amplifiers and a 20–500 Hz filter chain.
 - 🛡️ **Noise rejection** - Right-leg-drive circuit cancelling mains interference at its source
@@ -21,7 +21,7 @@
 >  **AI disclosure:** some parts of this project were developed with the help of AI tools. See [Use of AI tools](#-use-of-ai-tools) for details.
 ---
 
-## 👥 Team
+### 👥 Team
 
 - **Raffaele Manfrin**
 - **Michele Missiroli**
