@@ -1,11 +1,15 @@
 # SpaceFlex
 [![Hardware license](https://img.shields.io/badge/Hardware%20license-CC--BY--SA%204.0-brightgreen)](LICENSE-HARDWARE)
 [![Firmware license](https://img.shields.io/badge/Firmware%20license-GPL%20v3-blue)](LICENSE-FIRMWARE)
+<br><br>
 
-
-### Team Elettronici in Orbita
-
-We are **Raffaele Manfrin**, **Michele Missiroli**, **Andrea Nucciotti**, **Vlad Panta** and **Riccardo Pica**, five Bachelor's students in Electronic Engineering at **Politecnico di Milano**.
+### Who we are
+**Team Elettronici in Orbita**
+- **Raffaele Manfrin**
+- **Michele Missiroli**
+- **Andrea Nucciotti**
+- **Vlad Panta**
+- **Riccardo Pica**
 
 ### The project
 
@@ -16,7 +20,6 @@ SpaceFlex is a compact surface-EMG system that tracks astronauts' muscle health 
 Long missions in microgravity cause muscle loss, and crews are far from medical care. We wanted to take what we study every day — circuits, signals and microcontrollers — and turn it into a tool that could help protect the people who explore space.
 
 ---
-
 <br><br>
 ## LTspice simulation
 This [folder](hardware/simulation/) contains the LTspice simulation of the analog front end of our surface EMG acquisition board. The surface EMG signal is tiny (from a few hundred microvolts to a few millivolts, mostly between 20 and 500 Hz) and sits on top of electrode DC offset, 50 Hz mains interference and noise. The circuit amplifies the difference between two electrodes, removes the offset, limits the band and brings the signal to a level the ADC can read.
