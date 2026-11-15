@@ -18,6 +18,7 @@
 - ⚖️ **Body-weight monitoring** - Automatic alerts when weight drops below baseline
 - 🌐 **Offline web console** - Runs entirely in the browser via Web Serial API, no server or internet needed
 
+> 🤖 **AI disclosure:** some parts of this project were developed with the help of AI tools. See [Use of AI tools](#-use-of-ai-tools) for details.
 ---
 
 ## 👥 Team
@@ -275,3 +276,15 @@ Everything is kept in a JSON object in `localStorage`, with one key per patient 
 ```
 
 When the page opens, `JSON.parse` rebuilds the object. At each new measurement the site adds an element at the start of `measurements` (`unshift`) and rewrites everything with `JSON.stringify`.
+
+
+
+## 🤖 Use of AI tools
+
+In line with the NASA Space Apps Challenge rules, we used AI tools (Claude, by Anthropic) in the following parts of the project:
+
+- **Images** - The electrode-placement images were generated with AI tools and carry a visible "SI-generated" watermark.
+- **Research** - Support in gathering information on EMG electrode placement (SENIAM guidelines), component selection and scientific literature.
+- **Hardware design support** - Assistance in reviewing the schematic and troubleshooting the circuit design.
+
+All design choices were reviewed and validated by the team. No NASA logos, branding or mission identifiers were generated or modified with AI tools.
