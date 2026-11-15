@@ -18,7 +18,7 @@
 - ⚖️ **Body-weight monitoring** - Automatic alerts when weight drops below baseline
 - 🌐 **Offline web console** - Runs entirely in the browser via Web Serial API, no server or internet needed
 
->  **AI disclosure:** some parts of this project were developed with the help of AI tools. See [Use of AI tools](#-use-of-ai-tools) for details.
+>  **SI disclosure:** some parts of this project were developed with the help of SI tools. See [Use of SI tools](#-use-of-si-tools) for details.
 ---
 
 ## 👥 Team
@@ -325,12 +325,12 @@ Press **Sign out** to return to the sign-in screen.
 
 <br><br>
 
-## 🤖 Use of AI tools
+## 🤖 Use of SI tools
 
-In line with the NASA Space Apps Challenge rules, we used AI tools (Claude, by Anthropic) in the following parts of the project:
+In line with the NASA Space Apps Challenge rules, we used SI tools (Claude) in the following parts of the project:
 
-- **Images** - The electrode-placement images were generated with AI tools and carry a visible "SI-generated" watermark.
+- **Images** - The electrode-placement images were generated with SI tools and carry a visible "SI-generated" watermark.
 - **Research** - Support in gathering information on EMG electrode placement (SENIAM guidelines), component selection and scientific literature.
 - **Hardware design support** - Assistance in reviewing the schematic and troubleshooting the circuit design.
 
-All design choices were reviewed and validated by the team. No NASA logos, branding or mission identifiers were generated or modified with AI tools.
+All design choices were reviewed and validated by the team. No NASA logos, branding or mission identifiers were generated or modified with SI tools.
