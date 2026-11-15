@@ -215,7 +215,6 @@ Every chip has its own decoupling capacitors.
 > - Power the board exclusively from a battery.
 > - **Never connect the ESP32 to a computer powered from the mains while the electrodes are attached.**
 
-## 🖼️ PCB Gallery
 
 <p align="center">
   <img src="images/PCB.jpeg" alt="SpaceFlex PCB 3D render" width="400">
