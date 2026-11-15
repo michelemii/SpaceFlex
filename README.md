@@ -278,7 +278,7 @@ Everything is kept in a JSON object in `localStorage`, with one key per patient 
 When the page opens, `JSON.parse` rebuilds the object. At each new measurement the site adds an element at the start of `measurements` (`unshift`) and rewrites everything with `JSON.stringify`.
 
 
-
+<br><br>
 ## 🤖 Use of AI tools
 
 In line with the NASA Space Apps Challenge rules, we used AI tools (Claude, by Anthropic) in the following parts of the project:
