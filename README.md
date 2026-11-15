@@ -34,6 +34,8 @@
 - [LTspice simulation](#ltspice-simulation)
 - [KiCad implementation](#kicad-implementation)
 - [Software](#software)
+- [How to use SpaceFlex](#how-to-use-spaceflex)
+
 
 ---
 <br><br>
@@ -286,8 +288,43 @@ Everything is kept in a JSON object in `localStorage`, with one key per patient 
 
 When the page opens, `JSON.parse` rebuilds the object. At each new measurement the site adds an element at the start of `measurements` (`unshift`) and rewrites everything with `JSON.stringify`.
 
+<br><br>
+
+## How to use SpaceFlex
+
+### 1. Sign in
+Launch the app and fill in the form: first name, last name, age, sex, starting body weight and health status (**Healthy** or **Sick**). Press **Continue →**. For a quick test, **Fill demo data** fills everything in with a sample subject.
+
+### 2. Anatomical map (first screen)
+- The silhouette shows the muscles from the front and the back. The colour shows the status of the latest measurement: **grey** not measured, **green** normal, **yellow** decline, **red** atrophy.
+- To select a muscle, click it on the silhouette or use the buttons below.
+- The right-hand column shows that muscle's trend chart over the days, with the threshold lines, and the history of all measurements. Clicking a measurement selects the corresponding muscle.
+- **Alerts**, at the top, opens the list of warnings. The button turns yellow or red when something needs checking, and clicking a warning takes you straight to that muscle.
+
+### 3. Connect the sensor
+Connect the ESP32 via USB and press **Connect sensor**. When the connection succeeds, the firmware version appears at the top. You can still use the simulator without the sensor.
+
+### 4. Take a measurement
+- Press **Measure ↓**, or scroll down, to go to the second screen.
+- Set the mission day: **+1d** moves to the next day. Then choose the duration (5, 10 or 15 seconds).
+- Press **Start**. A pop-up shows where to place the electrodes. Apply them and press **Start now**.
+- During the measurement you see the signal in real time. At the end, the mean, peak, change from Day 1 and diagnosis are shown.
+- The measurement is saved automatically and the map updates.
+
+**Without the sensor:** choose a profile from the simulator menu. Alternatively, type values in mV in the **Manual** field, press **+ Add** and then **Save**.
+
+### 5. Body weight and nutrition (second screen, right side)
+- **Nutrition:** enter calories and protein and press **+ Log** to update the daily target bars.
+- **Body mass:** enter the day and the weight and press **+**. The table shows the difference from the starting weight and flags excessive drops.
+
+### 6. Alerts
+If a measurement or a weight crosses a threshold, a notification appears in the bottom-right corner. Clicking it opens the full list of alerts.
+
+### 7. Sign out or change subject
+Press **Sign out** to return to the sign-in screen.
 
 <br><br>
+
 ## 🤖 Use of AI tools
 
 In line with the NASA Space Apps Challenge rules, we used AI tools (Claude, by Anthropic) in the following parts of the project:
